@@ -21,7 +21,7 @@ else {
 }
 
 
-var date = 'ВВ.03';
+var date = '22.03';
 
 switch (date){
     case "08.03":console.log('с 8 марта!');
