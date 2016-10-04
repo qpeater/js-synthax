@@ -13,7 +13,7 @@ var age = 50,
 if ( age < a ){
     console.log('вы слишком молоды');
 }
-else if ( age >= b && age < c ) {
+else if ( age >= b && age <= c ) {
     console.log('отличный возраст');
 }
 else {
@@ -21,7 +21,7 @@ else {
 }
 
 
-var date = '22.03';
+var date = 'ВВ.03';
 
 switch (date){
     case "08.03":console.log('с 8 марта!');
