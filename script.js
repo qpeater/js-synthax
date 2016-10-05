@@ -5,15 +5,12 @@ for (var a = 1; a<=100; a++){
 }
 
 
-var age = 50,
-    a = 17,
-    b = 18,
-    c = 61;
+var age = 25;
 
-if ( age < a ){
+if ( age > 0 && age < 18 ){
     console.log('вы слишком молоды');
 }
-else if ( age >= b && age <= c ) {
+else if ( age >= 18 && age <= 60 ) {
     console.log('отличный возраст');
 }
 else {
@@ -24,7 +21,7 @@ else {
 var date = '22.03';
 
 switch (date){
-    case "08.03":console.log('с 8 марта!');
+    case '08.03':console.log('с 8 марта!');
 
         break;
     case '23.02':console.log('с 23 февраля');
