@@ -24,7 +24,7 @@ studentsAndPoints.push('Николай Фролов', 0, 'Олег Борово�
 var pavl = studentsAndPoints.indexOf('Антон Павлович') + 1;
 var bor = studentsAndPoints.indexOf('Олег Боровой') + 1;
 studentsAndPoints[pavl] += 10;
-studentsAndPoints[bor] += 10; // +10 баллов Фролову и Боровому
+studentsAndPoints[bor] += 10; // +10 баллов Павловичу и Боровому
 
 console.log('Студенты не набравшие баллов:');
 for (var i = 1, imax = studentsAndPoints.length; i < imax; i+=2) {
