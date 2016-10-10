@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Netology - Functions in JavaScript. Homework</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+    function sumToRecursion(n) {
+        if (n == 1) return 1;
+        return n + sumToRecursion(n - 1);
+    }
+
+    function sumToCycle(n) {
+        var sum = 0;
+        for (var i = 1; i <= n; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+
+    </script>
+</body>
+
+
+
+</html>
