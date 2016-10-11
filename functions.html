@@ -28,101 +28,83 @@
 	  var strawberryPie = 0; // количество клубничных пирогов, которое испекли.
 	  var apricotPie = 0; // количество абрикосовых пирогов, которое испекли.
 
-    function bakeApplePie() {
-        if (applePie === 10) {
-            return
-        } else if (apples < 3) {
-            console.log('Кончились яблоки! Купили еще 10 кг');
-            apples = apples + 10;
-            return bakeApplePie();
-        } else if (flour < 2) {
-            console.log('Кончилась мука! Купили еще 10 кг');
-            flour = flour + 10;
-            return bakeApplePie();
-        } else if (milk < 1) {
-            console.log('Кончилось молоко! Купили еще 10 литров');
-            milk = milk + 10;
-            return bakeApplePie();
-        } else if (eggs < 3) {
-            console.log('Кончились яйца! Купили еще 10 штук');
-            eggs = eggs + 10;
-            return bakeApplePie();
+    function checkProd(applesSum, strawberrySum, apricotSum, flourSum, milkSum, eggsSum) {
+        if (apples < applesSum) {
+            console.log('Кончились яблоки! Купили ещё 10 кг');
+            apples += 10;
+            return checkProd();
+        } else if (strawberry < strawberrySum) {
+            console.log('Кончилась клубника! Купили ещё 10 кг');
+            strawberry += 10;
+            return checkProd();
+        } else if (apricot < apricotSum) {
+            console.log('Кончились абрикосы! Купили ещё 10 кг');
+            apricot += 10;
+            return checkProd();
+        } else if (flour < flourSum) {
+            console.log('Кончилась мука! Купили ещё 10 кг');
+            flour += 10;
+            return checkProd();
+        } else if (milk < milkSum) {
+            console.log('Кончилось молоко! Купили ещё 10 литров');
+            milk += 10;
+            return checkProd();
+        } else if (eggs < eggsSum) {
+            console.log('Кончились яйца! Купили ещё 10 шт');
+            eggs += 10;
+            return checkProd();
         } else {
-            apples = apples - 3;
-            flour = flour - 2;
-            milk = milk - 1;
-            eggs = eggs - 3;
-            applePie++
-            console.log('Яблочный пирог '+applePie+' готов!');
-            return bakeApplePie();
+            return true;
         }
     }
 
-    bakeApplePie()
+    function bakePie(applesSum, strawberrySum, apricotSum, flourSum, milkSum, eggsSum) {
+            apples -= applesSum;
+            strawberry -= strawberrySum;
+            apricot -= apricotSum;
+            flour -= flourSum;
+            milk -= milkSum;
+            eggs -= eggsSum;
+    }
+
+    function bakeApplePie() {
+        var isStorageFull = checkProd(3, 0, 0, 2, 1, 3);
+        if (isStorageFull) {
+            bakePie(3, 0, 0, 2, 1, 3);
+            applePie++;
+            console.log('Яблочный пирог '+applePie+' готов!');
+        }
+    }
 
     function bakeStrawberryPie() {
-        if (strawberryPie === 10) {
-            return
-        } else if (strawberry < 5) {
-            console.log('Кончилась Клубника! Купили еще 10 кг');
-            strawberry = strawberry + 10;
-            return bakeStrawberryPie();
-        } else if (flour < 1) {
-            console.log('Кончилась мука! Купили еще 10 кг');
-            flour = flour + 10;
-            return bakeStrawberryPie();
-        } else if (milk < 2) {
-            console.log('Кончилось молоко! Купили еще 10 литров');
-            milk = milk + 10;
-            return bakeStrawberryPie();
-        } else if (eggs < 4) {
-            console.log('Кончились яйца! Купили еще 10 штук');
-            eggs = eggs + 10;
-            return bakeStrawberryPie();
-        } else {
-            strawberry = strawberry - 5;
-            flour = flour - 1;
-            milk = milk - 2;
-            eggs = eggs - 4;
+        var isStorageFull = checkProd(0, 5, 0, 1, 2, 4);
+        if (isStorageFull) {
+            bakePie(0, 5, 0, 1, 2, 4);
             strawberryPie++
             console.log('Клубничный пирог '+strawberryPie+' готов!');
-            return bakeStrawberryPie();
         }
     }
-
-    bakeStrawberryPie();
 
     function bakeApricotPie() {
-        if (apricotPie === 10) {
-            return
-        } else if (apricot < 2) {
-            console.log('Кончились абрикосы! Купили еще 10 кг');
-            apricot = apricot + 10;
-            return bakeApricotPie();
-        } else if (flour < 3) {
-            console.log('Кончилась мука! Купили еще 10 кг');
-            flour = flour + 10;
-            return bakeApricotPie();
-        } else if (milk < 2) {
-            console.log('Кончилось молоко! Купили еще 10 литров');
-            milk = milk + 10;
-            return bakeApricotPie();
-        } else if (eggs < 2) {
-            console.log('Кончились яйца! Купили еще 10 штук');
-            eggs = eggs + 10;
-            return bakeApricotPie();
-        } else {
-            apricot = apricot - 2;
-            flour = flour - 3;
-            milk = milk - 2;
-            eggs = eggs - 2;
+        var isStorageFull = checkProd(0, 0, 2, 3, 2, 2);
+        if (isStorageFull) {
+            bakePie(0, 0, 2, 3, 2, 2);
             apricotPie++
-            console.log('Абрикосовый пирог '+apricotPie+' готов!');
-            return bakeApricotPie();
+            console.log('Абрикосовый пирог '+apricotPie+' готов!');;
         }
     }
 
-    bakeApricotPie();
+    function bakeAllPies(applePieSum, strawberryPieSum, apricotPieSum) {
+        while (applePie < applePieSum) {
+            bakeApplePie();
+        } while (strawberryPie < strawberryPieSum) {
+            bakeStrawberryPie();
+        } while (apricotPie < apricotPieSum) {
+            bakeApricotPie();
+        }
+    }
+
+    bakeAllPies(10, 10, 10)
 
 	</script>
 </body>
